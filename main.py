@@ -22,20 +22,20 @@ class WeeklyReportState(TypedDict):
     email_sent: Optional[bool]
 
 
-# ── Node 1: Load report data ──────────────────────────────────────────────────
-# Note: Google Sheets not yet in registry — using hardcoded sample data.
-# TODO: replace with spreadsheets.values:batchget.get once googleapis_com_sheets_4_json is available.
+# ── Node 1: Load report data from Google Sheets ───────────────────────────────
 
 def load_report_data(state: WeeklyReportState) -> dict:
-    print(f"[1/3] Loading report data for {state['week_label']}...")
-    report_data = [
-        ["Metric", "Value"],
-        ["Signups", "142"],
-        ["Revenue", "$8,400"],
-        ["Churn",   "3"],
-        ["MRR",     "$24,200"],
-    ]
-    print(f"    [OK] Loaded {len(report_data) - 1} metrics")
+    print(f"[1/3] Loading report data from Google Sheets for {state['week_label']}...")
+    result = swytchcode_exec("spreadsheets.values:batchget.get", {
+        "spreadsheetId": os.environ["GOOGLE_SPREADSHEET_ID"],
+        "ranges":        [os.environ.get("GOOGLE_SHEETS_RANGE", "Sheet1!A1:B10")],
+        "Authorization": f"Bearer {os.environ['GOOGLE_ACCESS_TOKEN']}",
+    })
+    value_ranges = (result or {}).get("data", {}).get("valueRanges", [])
+    report_data = value_ranges[0].get("values", []) if value_ranges else []
+    if not report_data:
+        print("    [WARN] No data returned from Sheets — check GOOGLE_SPREADSHEET_ID and GOOGLE_SHEETS_RANGE")
+    print(f"    [OK] Loaded {max(0, len(report_data) - 1)} metrics")
     return {"report_data": report_data}
 
 

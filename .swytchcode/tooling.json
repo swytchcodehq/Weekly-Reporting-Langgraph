@@ -1,6 +1,9 @@
 {
   "editor": "none",
   "integrations": {
+    "googleapis.googleapis_com_sheets_4_json": {
+      "version": "4"
+    },
     "notion.notion": {
       "version": "latest"
     },
@@ -10,6 +13,32 @@
   },
   "mode": "production",
   "tools": {
+    "spreadsheets.values:batchget.get": {
+      "desc": "Returns one or more ranges of values from a spreadsheet",
+      "inputs": [
+        {
+          "spreadsheetId": {
+            "TYPE": "STRING",
+            "LOCATION": "path"
+          }
+        },
+        {
+          "ranges": {
+            "TYPE": "[]STRING",
+            "REQUIRED": false,
+            "LOCATION": "query"
+          }
+        }
+      ],
+      "integration": "googleapis.googleapis_com_sheets_4_json@4",
+      "method_hash": "",
+      "output": {
+        "schema": {},
+        "status": 200
+      },
+      "summary": "Returns one or more ranges of values from a spreadsheet",
+      "type": "method"
+    },
     "emails.email.create": {
       "desc": "Send an email",
       "inputs": [
