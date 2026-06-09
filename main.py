@@ -125,7 +125,7 @@ app = workflow.compile()
 if __name__ == "__main__":
     result = app.invoke({
         "week_label":          f"Week of {datetime.utcnow().strftime('%B %d, %Y')}",
-        "report_email":        "lkomrawat@gmail.com",
+        "report_email":        os.environ["REPORT_EMAIL"],
         "notion_database_id":  os.environ["NOTION_DATABASE_ID"],
         "report_data":         None,
         "notion_page_id":      None,
