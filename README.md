@@ -88,13 +88,13 @@ The script prints each node as it runs and a summary at the end:
 
 ```
 [1/3] Loading report data from Google Sheets for Week of June 10, 2026...
-    [OK] Loaded 5 metrics
+    Loaded 5 metrics
 [2/3] Creating Notion report page for Week of June 10, 2026...
-    [OK] Notion page created: 1a2b3c4d-...
+    Notion page created: 1a2b3c4d-...
 [3/3] Emailing report to you@example.com...
-    [OK] Email sent to you@example.com
+    Email sent to you@example.com
 
-[DONE] Weekly report complete!
+Weekly report complete!
    Rows reported:   5
    Notion page ID:  1a2b3c4d-...
    Email sent:      True
@@ -114,7 +114,6 @@ After a run you should see a new page in your Notion database, titled for the we
 
 Runnable LangGraph + Swytchcode examples:
 
-- [Weekly-Reporting-Langgraph](https://github.com/swytchcodehq/Weekly-Reporting-Langgraph)
 - [Customer-Onboarding-Langgraph](https://github.com/swytchcodehq/Customer-Onboarding-Langgraph)
 - [Create-And-Send-Payment-Langgraph](https://github.com/swytchcodehq/Create-And-Send-Payment-Langgraph)
 - [Lead-Qualification-Langgraph](https://github.com/swytchcodehq/Lead-Qualification-Langgraph)
