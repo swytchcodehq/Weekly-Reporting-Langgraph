@@ -72,7 +72,7 @@ load_report -> create_notion_page -> email_stakeholders
 | `NOTION_DATABASE_ID` | Yes | ID of the Notion database the report page is created in. |
 | `RESEND_API_KEY` | Yes | Resend API key (`re_...`). |
 | `REPORT_EMAIL` | Yes | Address that receives the emailed report. |
-| `SWYTCHCODE_TOKEN` | Yes | Swytchcode auth token. Run `swytchcode whoami` to get yours. |
+| `SWYTCHCODE_TOKEN` | Yes | Swytchcode auth token, from the [Swytchcode dashboard](https://swytchcode.com) under Settings, API keys. |
 
 The first row of the sheet range is treated as a header and skipped; remaining rows are read as `metric, value` pairs.
 
@@ -100,7 +100,7 @@ The script prints each node as it runs and a summary at the end:
    Email sent:      True
 ```
 
-After a run you should see a new page in your Notion database titled `Weekly Report - Week of <date>` and a report email in the `REPORT_EMAIL` inbox.
+After a run you should see a new page in your Notion database, titled for the week you ran it, and a report email in the `REPORT_EMAIL` inbox.
 
 ## Canonical IDs Used
 
