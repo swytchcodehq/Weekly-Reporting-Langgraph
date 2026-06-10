@@ -2,19 +2,19 @@
 
 A LangGraph agent that turns a Google Sheet of metrics into a published Notion page and an emailed weekly report.
 
-> Run one command to pull your weekly numbers, publish them to Notion, and email stakeholders. No API glue code, no credential juggling, no retry logic to maintain.
+> Run one command to pull your weekly numbers, publish them to Notion, and email stakeholders, without writing API glue code or managing credentials and retries.
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/swytchcodehq/Weekly-Reporting-Langgraph?style=flat-square)](https://github.com/swytchcodehq/Weekly-Reporting-Langgraph/commits)
 
-## What This Does
+## What this does
 
 This demo automates a recurring weekly report. It reads a range of metrics from a Google Sheet, creates a Notion page summarizing them, and emails an HTML table of the same numbers to a stakeholder address through Resend. The three steps run as a LangGraph state machine, so each node passes its result to the next.
 
 Every external call goes through [Swytchcode](https://www.swytchcode.com/), a deterministic API execution layer for AI agents. The agent code never calls Google, Notion, or Resend directly. Instead it asks the Swytchcode runtime to run a named method, and the runtime validates the request against a schema registry of 2,000+ integrations, handles auth and retries, and records an audit trail of what ran.
 
-## How It Works
+## How it works
 
 The graph has three nodes and runs them in order:
 
@@ -29,7 +29,7 @@ load_report -> create_notion_page -> email_stakeholders
 ## Prerequisites
 
 - **Python 3.9+**
-- **Swytchcode CLI.** Install with the verified script for your platform:
+- **Swytchcode CLI:** install with the verified script for your platform:
 
   Linux / macOS:
   ```bash
@@ -61,7 +61,7 @@ load_report -> create_notion_page -> email_stakeholders
    swytchcode bootstrap
    ```
 
-## Environment Variables
+## Environment variables
 
 | Variable | Required | Description |
 |----------|----------|-------------|
@@ -82,7 +82,7 @@ The first row of the sheet range is treated as a header and skipped; remaining r
 python main.py
 ```
 
-## Expected Output
+## Expected output
 
 The script prints each node as it runs and a summary at the end:
 
@@ -102,7 +102,7 @@ Weekly report complete!
 
 After a run you should see a new page in your Notion database, titled for the week you ran it, and a report email in the `REPORT_EMAIL` inbox.
 
-## Canonical IDs Used
+## Canonical IDs used
 
 | Service | Canonical ID |
 |---------|--------------|
