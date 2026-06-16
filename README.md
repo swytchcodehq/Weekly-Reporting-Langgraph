@@ -30,15 +30,9 @@ load_report -> create_notion_page -> email_stakeholders
 
 - **Python 3.9+**
 - **Swytchcode CLI:** install with the verified script for your platform:
+  
+  npm install -g swytchcode
 
-  Linux / macOS:
-  ```bash
-  curl -fsSL https://cli.swytchcode.com/install.sh | sh
-  ```
-  Windows (PowerShell):
-  ```powershell
-  irm https://cli.swytchcode.com/install.ps1 | iex
-  ```
 - A **Google Sheets** access token, a **Notion** integration token, and a **Resend** API key (see the table below).
 
 ## Setup
