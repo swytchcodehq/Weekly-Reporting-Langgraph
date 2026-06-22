@@ -50,10 +50,6 @@ load_report -> create_notion_page -> email_stakeholders
    ```bash
    cp .env.example .env
    ```
-4. Fetch the integrations declared in `.swytchcode/tooling.json`:
-   ```bash
-   swytchcode bootstrap
-   ```
 
 ## Environment variables
 
@@ -108,10 +104,12 @@ After a run you should see a new page in your Notion database, titled for the we
 
 Runnable LangGraph + Swytchcode examples:
 
-- [Customer-Onboarding-Langgraph](https://github.com/swytchcodehq/Customer-Onboarding-Langgraph)
-- [Create-And-Send-Payment-Langgraph](https://github.com/swytchcodehq/Create-And-Send-Payment-Langgraph)
-- [Lead-Qualification-Langgraph](https://github.com/swytchcodehq/Lead-Qualification-Langgraph)
 - [Bug-Escalation-Langgraph](https://github.com/swytchcodehq/Bug-Escalation-Langgraph)
+- [Create-And-Send-Payment-Langgraph](https://github.com/swytchcodehq/Create-And-Send-Payment-Langgraph)
+- [Customer-Onboarding-Langgraph](https://github.com/swytchcodehq/Customer-Onboarding-Langgraph)
+- [Fintech-Compliance-Langgraph-Demo](https://github.com/swytchcodehq/Fintech-Compliance-Langgraph-Demo)
+- [Lead-Qualification-Langgraph](https://github.com/swytchcodehq/Lead-Qualification-Langgraph)
+- [Weekly-Reporting-Langgraph](https://github.com/swytchcodehq/Weekly-Reporting-Langgraph)
 
 ## License
 
