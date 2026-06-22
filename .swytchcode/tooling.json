@@ -1,18 +1,41 @@
 {
   "editor": "none",
   "integrations": {
-    "googleapis.googleapis_com_sheets_4_json": {
+    "googleapis.sheets": {
       "version": "4"
     },
-    "notion.notion": {
+    "notion.notion_api": {
       "version": "latest"
     },
-    "resend.resend": {
+    "resend.resend_api": {
       "version": "v1.5.0"
     }
   },
   "mode": "production",
   "tools": {
+    "pages.page.create": {
+      "desc": "",
+      "inputs": [
+        {
+          "Notion-Version": {
+            "TYPE": "STRING",
+            "LOCATION": "header"
+          }
+        },
+        {
+          "body": {
+            "TYPE": "STRUCT(pages.page.createRequest)",
+            "REQUIRED": true,
+            "LOCATION": "body"
+          }
+        }
+      ],
+      "integration": "notion.notion_api@latest",
+      "method_hash": "",
+      "output": {},
+      "summary": "Create pages",
+      "type": "method"
+    },
     "spreadsheets.values:batchget.get": {
       "desc": "Returns one or more ranges of values from a spreadsheet",
       "inputs": [
@@ -30,7 +53,7 @@
           }
         }
       ],
-      "integration": "googleapis.googleapis_com_sheets_4_json@4",
+      "integration": "googleapis.sheets@4",
       "method_hash": "",
       "output": {
         "schema": {},
@@ -74,7 +97,7 @@
           }
         }
       ],
-      "integration": "resend.resend@v1.5.0",
+      "integration": "resend.resend_api@v1.5.0",
       "method_hash": "",
       "output": {
         "schema": {
@@ -88,29 +111,6 @@
         "status": 200
       },
       "summary": "Send an email",
-      "type": "method"
-    },
-    "pages.page.create": {
-      "desc": "",
-      "inputs": [
-        {
-          "Notion-Version": {
-            "TYPE": "STRING",
-            "LOCATION": "header"
-          }
-        },
-        {
-          "body": {
-            "TYPE": "STRUCT(pages.page.createRequest)",
-            "REQUIRED": true,
-            "LOCATION": "body"
-          }
-        }
-      ],
-      "integration": "notion.notion@latest",
-      "method_hash": "",
-      "output": {},
-      "summary": "Create pages",
       "type": "method"
     }
   },
